@@ -38,8 +38,8 @@ const formatUserData = (user: User): IUser => ({
   photoUrl: user.photoURL,
 });
 
-const createUser = (uid: string, data: any) => {
-  return setDoc(doc(db, 'users', uid), { uid, ...data }, { merge: true });
+const createUser = (uid: string, data: IUser) => {
+  return setDoc(doc(db, 'users', uid), data, { merge: true });
 };
 
 const useProvideAuth = () => {
@@ -47,10 +47,11 @@ const useProvideAuth = () => {
   const [user, setUser] = useState<IUser | null>(null);
 
   const handleAuthChange = async (authState: User | null) => {
-    if (!authState) return;
+    if (authState) {
+      const formattedUser = formatUserData(authState);
+      setUser(formattedUser);
+    }
 
-    const formattedUser = formatUserData(authState);
-    setUser(formattedUser);
     setLoading(false);
   };
 
