@@ -1,34 +1,30 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import type { NextPage } from 'next';
-import { Flex, Heading, Button, Box } from '@chakra-ui/react';
 
 import { useAuth } from 'context/auth';
-
-import LoginPage from 'components/LoginPage';
+import LoadingView from 'components/Layouts/Loading';
+import DashboardView from 'components/Layouts/Dashboard';
+import Databases from 'components/Databases';
 
 const Home: NextPage = () => {
   const { user, loading } = useAuth();
   const router = useRouter();
 
   useEffect(() => {
-    if (!user && !loading) {
+    if (!loading && !user) {
       router.push('/login');
     }
   }, [user, loading]);
 
-  return (
-    <>
-      <Flex>
-        <Box>
-          <Heading as="h1">Hello</Heading>
-          <div>
-            <pre>{JSON.stringify(user, null, 2)}</pre>
-          </div>
-        </Box>
-      </Flex>
-    </>
-  );
+  if (loading) return <LoadingView />;
+  if (user)
+    return (
+      <DashboardView>
+        <Databases />
+      </DashboardView>
+    );
+  return null;
 };
 
 export default Home;

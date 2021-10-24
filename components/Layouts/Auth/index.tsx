@@ -6,7 +6,7 @@ import { FaGithub as GitHubIcon } from 'react-icons/fa';
 
 import { useAuth } from 'context/auth';
 
-const Home: NextPage = () => {
+const LoginView: NextPage = () => {
   const { user, loading, signInWithGitHub } = useAuth();
   const router = useRouter();
 
@@ -42,4 +42,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default LoginView;
