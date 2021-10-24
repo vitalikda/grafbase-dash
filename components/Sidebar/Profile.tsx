@@ -23,15 +23,15 @@ export const Profile = () => {
       borderTopColor="gray.100"
       borderTopWidth={1}
     >
-      {user ? (
+      {user?.name && user?.photoUrl ? (
         <HStack>
           <Avatar
             mr={1}
             ml={6}
             size="sm"
             borderRadius="md"
-            name={user?.name}
-            src={user?.photoUrl}
+            name={user.name}
+            src={user.photoUrl}
           />
           <Text
             fontSize="sm"
@@ -41,7 +41,7 @@ export const Profile = () => {
             maxW="120px"
             isTruncated
           >
-            {user?.name}
+            {user.name}
           </Text>
         </HStack>
       ) : (
