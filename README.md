@@ -1,3 +1,21 @@
+# Grafbase Dashboard
+
+Design concept of Grafbase dashboard
+
+- Left sidebar navigation
+- Project segregation (spaces): user can separate his projects by creating new spaces
+- Databases view: high level overview of user's databases
+- Auth view: user can sign in with GitHub
+- Loading view
+
+Stack: `NextJs`, `TypeScript`, `Chakra UI`, `Firebase`
+
+### Mockup
+
+![image](https://user-images.githubusercontent.com/9862028/138612775-6c8322d3-8842-44b0-be67-c930f70d392f.png)
+
+---
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
