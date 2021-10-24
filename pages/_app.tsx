@@ -1,8 +1,9 @@
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
-
-import { AuthProvider } from 'context/auth';
 import { ChakraProvider } from '@chakra-ui/react';
+
+import { theme } from 'theme';
+import { AuthProvider } from 'context/auth';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -11,7 +12,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <title>Grafbase</title>
         <link rel="icon" href="/favicon.png" />
       </Head>
-      <ChakraProvider>
+      <ChakraProvider theme={theme}>
         <AuthProvider>
           <Component {...pageProps} />
         </AuthProvider>
