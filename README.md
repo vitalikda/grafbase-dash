@@ -1,6 +1,4 @@
-# Grafbase Dashboard
-
-Design concept of Grafbase dashboard
+# Grafbase Dashboard POC 
 
 - Left sidebar navigation
 - Project segregation (spaces): user can separate his projects by creating new spaces
